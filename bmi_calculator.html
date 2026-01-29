@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <h1>BMI Calculator</h1>
+    <br />
+    <p><i>Please click the following links to try other apps.</i></p>
+
+    <!-- Form -->
+    <form
+      onsubmit="
+        calculateBmi();
+        return false;
+      "
+    >
+      <label for="user-height">Height:</label>
+      <input
+        type="number"
+        name="user-height"
+        id="user-height"
+        placeholder="Your Height in cm"
+      />
+      <br />
+      <label for="user-weight">Weight</label>
+      <input
+        type="number"
+        name="user-weight"
+        id="user-weight"
+        placeholder="Your weight in KG"
+      />
+      <br />
+      <br />
+      <button>🧮 Calculate my BMI</button>
+    </form>
+    <br />
+    <div id="show-result"></div>
+
+    <!-- JS CODE -->
+
+    <script>
+      function calculateBmi() {
+        const heightInputRef = document.querySelector("#user-height");
+        const weightInputRef = document.querySelector("#user-weight");
+
+        const userWeight = Number(weightInputRef.value);
+        const userHeight = Number(heightInputRef.value);
+
+        const theResult = (userWeight / userHeight ** 2) * 10000;
+
+        const resultDivRef = document.querySelector("#show-result");
+        resultDivRef.innerHTML = `Your BMI is:  ${theResult.toFixed(2)}!`;
+      }
+    </script>
+  </body>
+</html>
