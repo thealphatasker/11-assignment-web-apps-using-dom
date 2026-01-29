@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+  </head>
+  <body>
+    <h1>TAX Calculator</h1>
+    <br />
+
+    <form
+      onsubmit="
+        calculateTax();
+        return false;
+      "
+    >
+      <label for="user-amount">Total Amount: </label>
+      <input
+        type="number"
+        name="user-amount"
+        id="user-amount"
+        placeholder="Enter your total amount"
+        required
+      />
+      <br />
+      <label for="user-tax">Total Tax: </label>
+      <input
+        type="number"
+        name="user-tax"
+        id="user-tax"
+        placeholder="Enter your total tax"
+        required
+      />
+      <br />
+      <button>Calculate</button>
+    </form>
+    <br />
+    <div id="show-result"></div>
+
+    <!-- JS CODE -->
+
+    <script>
+      function calculateTax() {
+        const amountDivRef = document.querySelector("#user-amount");
+        const taxDivRef = document.querySelector("#user-tax");
+
+        const userAmount = Number(amountDivRef.value);
+        const userTax = Number(taxDivRef.value);
+
+        const theResult = userTax * (userAmount * 0.1);
+
+        const resultDivRef = document.querySelector("#show-result");
+        resultDivRef.innerHTML = `Your total tax amount is : ${theResult}`;
+      }
+    </script>
+  </body>
+</html>

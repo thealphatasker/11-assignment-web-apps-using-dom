@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <h1>The Age Calculator</h1>
+    <br />
+    <!-- Form -->
+    <form
+      onsubmit="
+        calculateAge();
+        return false;
+      "
+    >
+      <label for="birth-year">Birth Year:</label>
+      <input
+        type="number"
+        id="birth-year"
+        placeholder="Enter your birth year"
+      />
+      <br /><br />
+
+      <button>Calculate Age</button>
+    </form>
+
+    <br />
+    <div id="show-age"></div>
+
+    <!-- JS CODE -->
+    <script>
+      function calculateAge() {
+        const birthYearRef = document.querySelector("#birth-year");
+
+        const birthYear = Number(birthYearRef.value);
+
+        const age = 2026 - birthYear;
+
+        const resultRef = document.querySelector("#show-age");
+        resultRef.innerHTML = `Your age is: ${age} years`;
+      }
+    </script>
+  </body>
+</html>

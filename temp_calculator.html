@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Calculator</title>
+  </head>
+  <body>
+    <h1>Temperature Calculator</h1>
+    <br />
+    <!-- Form -->
+    <form
+      onsubmit="
+        convertTemp();
+        return false;
+      "
+    >
+      <label for="temp">Celsius:</label>
+      <input
+        type="number"
+        id="temp"
+        placeholder="Enter your temperature in celsius"
+      />
+      <br /><br />
+
+      <button>Convert the Temperature</button>
+    </form>
+
+    <br />
+    <div id="temp-result"></div>
+
+    <script>
+      function convertTemp() {
+        const tempRef = document.querySelector("#temp");
+        const celsius = Number(tempRef.value);
+
+        const fahrenheit = (celsius * 9) / 5 + 32;
+
+        const resultRef = document.querySelector("#temp-result");
+        resultRef.innerHTML = `Temperature: ${fahrenheit} °F`;
+      }
+    </script>
+  </body>
+</html>
