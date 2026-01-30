@@ -3,12 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Expense Calculator</title>
   </head>
   <body>
-    <h1><u>DOM Web Apps</u></h1>
-    <hr />
+    <h1>Expense Calculator</h1>
     <br />
+
+    <form
+      onsubmit="
+        addExpense();
+        return false;
+      "
+    >
+      <input type="number" id="expense" placeholder="Expense amount" />
+      <br /><br />
+
+      <button>➕ Add Expense</button>
+    </form>
+
+    <br />
+    <div id="expense-result">Total: 0</div>
+
+    <script>
+      let total = 0;
+
+      function addExpense() {
+        const expenseRef = document.querySelector("#expense");
+        const amount = Number(expenseRef.value);
+
+        total += amount;
+
+        const resultRef = document.querySelector("#expense-result");
+        resultRef.innerHTML = `Total expense so far: ${total}`;
+      }
+    </script>
+
+    <br /><br />
     <h3><a href="./index.html">🏠 HomePage</a></h3>
     <br />
     <ol>
